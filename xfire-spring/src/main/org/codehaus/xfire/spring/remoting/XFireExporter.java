@@ -1,0 +1,77 @@
+package org.codehaus.xfire.spring.remoting;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import org.codehaus.xfire.spring.ServiceBean;
+import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.web.context.ServletContextAware;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+
+/**
+ * Web controller that exports the specified service bean as a XFire Soap service endpoint.
+ *
+ * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse </a>
+ * @author <a href="mailto:poutsma@mac.com">Arjen Poutsma</a>
+ */
+public class XFireExporter
+        extends ServiceBean
+        implements ServletContextAware, Controller
+{
+    private XFireServletControllerAdapter delegate;
+    private ServletContext context;
+    
+    public void afterPropertiesSet()
+            throws Exception
+    {
+        super.afterPropertiesSet();
+        
+        delegate = new XFireServletControllerAdapter(getXfire(), 
+                                                     context,
+                                                     getXFireService().getName());
+    }
+
+    /**
+     * Process the incoming SOAP request and create a SOAP response.
+     *
+     * @param request  current HTTP request
+     * @param response current HTTP response
+     * @return <code>null</code>
+     * @throws Exception in case of errors
+     */
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return delegate.handleRequest(request, response);
+    }
+
+    /**
+     * @return
+     */
+    protected Object getProxyForService()
+    {
+        ProxyFactory proxyFactory = new ProxyFactory();
+        proxyFactory.addInterface(getXFireService().getServiceInfo().getServiceClass());
+
+        proxyFactory.setTarget(getServiceBean());
+        return proxyFactory.getProxy();
+    }
+    
+    /**
+     * This is just a convenience method which delegates to setServiceClass().
+     * @param intf
+     */
+    public void setServiceInterface(Class intf)
+    {
+        setServiceClass(intf);
+    }
+
+    public void setServletContext(ServletContext context)
+    {
+        this.context = context;
+    }
+    
+}

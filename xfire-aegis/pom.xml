@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>xfire-parent</artifactId>
+		<groupId>org.codehaus.xfire</groupId>
+		<version>2.0.0-jakarta</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>xfire-aegis</artifactId>
+	<name>XFire Aegis Binding</name>
+	<description>A Java - XML Data Binding framework. Aegis = Shield</description>
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.xfire</groupId>
+			<artifactId>xfire-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>stax-utils</groupId>
+			<artifactId>stax-utils</artifactId>
+			<version>snapshot-20040917</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xmlParserAPIs</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+</project>
