@@ -5,9 +5,9 @@ import java.lang.reflect.Method;
 
 import javax.jws.WebMethod;
 import javax.xml.namespace.QName;
-import javax.xml.ws.RequestWrapper;
-import javax.xml.ws.ResponseWrapper;
-import javax.xml.ws.WebFault;
+import jakarta.xml.ws.RequestWrapper;
+import jakarta.xml.ws.ResponseWrapper;
+import jakarta.xml.ws.WebFault;
 
 import org.codehaus.xfire.XFireFactory;
 import org.codehaus.xfire.aegis.AegisBindingProvider;

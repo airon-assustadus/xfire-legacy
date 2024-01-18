@@ -11,7 +11,7 @@ import java.util.Map.Entry;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 
 import org.apache.commons.httpclient.Credentials;
 import org.apache.commons.httpclient.Header;

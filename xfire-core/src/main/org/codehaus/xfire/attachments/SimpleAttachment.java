@@ -3,7 +3,7 @@ package org.codehaus.xfire.attachments;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

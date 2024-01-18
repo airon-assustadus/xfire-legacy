@@ -4,8 +4,8 @@ import org.codehaus.xfire.aegis.type.Type;
 import org.codehaus.xfire.aegis.type.TypeCreator;
 import org.codehaus.xfire.aegis.type.TypeMapping;
 
-import javax.xml.bind.Element;
-import javax.xml.bind.JAXBContext;
+import jakarta.xml.bind.Element;
+import jakarta.xml.bind.JAXBContext;
 import javax.xml.namespace.QName;
 
 import java.beans.PropertyDescriptor;

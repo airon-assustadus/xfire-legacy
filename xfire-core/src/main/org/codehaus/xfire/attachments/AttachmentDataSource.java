@@ -2,7 +2,7 @@ package org.codehaus.xfire.attachments;
 
 import org.codehaus.xfire.util.CachedOutputStream;
 
-import javax.activation.DataSource;
+import jakarta.activation.DataSource;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;

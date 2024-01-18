@@ -7,7 +7,7 @@ import org.codehaus.xfire.aegis.type.Type;
 
 /**
  * @author <a href="mailto:tsztelak@gmail.com">Tomasz Sztelak</a>
- * XMLTypeCreator with support for javax.xml.ws.Holder
+ * XMLTypeCreator with support for jakarta.xml.ws.Holder
  */
 public class XMLTypeCreator extends
 		org.codehaus.xfire.aegis.type.XMLTypeCreator {
@@ -15,7 +15,7 @@ public class XMLTypeCreator extends
 	
 	protected boolean isHolder(Class javaType)
     {
-        return ( "javax.xml.ws.Holder".equals(javaType.getName()) || super.isHolder(javaType));
+        return ( "jakarta.xml.ws.Holder".equals(javaType.getName()) || super.isHolder(javaType));
     }
 
     protected Type createHolderType(TypeClassInfo info)

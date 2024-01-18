@@ -6,16 +6,20 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 
 import javax.xml.transform.Source;
-import javax.xml.ws.Binding;
-import javax.xml.ws.BindingType;
-import javax.xml.ws.soap.SOAPBinding;
+import jakarta.xml.ws.Binding;
+import jakarta.xml.ws.BindingType;
+import jakarta.xml.ws.EndpointReference;
+import jakarta.xml.ws.soap.SOAPBinding;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codehaus.xfire.jaxws.binding.AbstractBinding;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.invoker.BeanInvoker;
+import org.w3c.dom.Element;
 
 public class Endpoint
-    extends javax.xml.ws.Endpoint
+    extends jakarta.xml.ws.Endpoint
 {
     private JAXWSHelper jaxWsHelper = JAXWSHelper.getInstance();
     private AbstractBinding binding;
@@ -24,7 +28,9 @@ public class Endpoint
     private List<Source> metadata;
     private Executor executor;
     private Service service;
-    
+
+    private static final Log log = LogFactory.getLog(Endpoint.class);
+
     private Map<String,Object> properties = new HashMap<String,Object>();
     
     public Endpoint(String bindingId, Object implementor)
@@ -145,5 +151,17 @@ public class Endpoint
     public void setProperties(Map<String, Object> properties)
     {
         this.properties = properties;
+    }
+
+    @Override
+    public EndpointReference getEndpointReference(Element... referenceParameters) {
+        log.error("Please do not use this method");
+        return null;
+    }
+
+    @Override
+    public <T extends EndpointReference> T getEndpointReference(Class<T> clazz, Element... referenceParameters) {
+        log.error("Please do not use this method");
+        return null;
     }
 }

@@ -3,12 +3,12 @@ package org.codehaus.xfire.jaxws.handler;
 import java.util.List;
 import java.util.Set;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
-import javax.xml.soap.SOAPMessage;
-import javax.xml.ws.WebServiceException;
+import jakarta.xml.soap.SOAPMessage;
+import jakarta.xml.ws.WebServiceException;
 
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.util.stax.JDOMStreamReader;
@@ -17,7 +17,7 @@ import org.jdom.Namespace;
 
 public class SOAPMessageContext
     extends AbstractMessageContext
-    implements javax.xml.ws.handler.soap.SOAPMessageContext
+    implements jakarta.xml.ws.handler.soap.SOAPMessageContext
 {
     private final MessageContext context;
     private SOAPMessage soapMessage;

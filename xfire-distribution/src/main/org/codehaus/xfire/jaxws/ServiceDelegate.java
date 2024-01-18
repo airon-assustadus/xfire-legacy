@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
-import javax.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBContext;
 import javax.xml.namespace.QName;
 import javax.xml.transform.Source;
-import javax.xml.ws.Dispatch;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.Service.Mode;
-import javax.xml.ws.handler.HandlerResolver;
+import jakarta.xml.ws.Dispatch;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.Service.Mode;
+import jakarta.xml.ws.handler.HandlerResolver;
 
 import org.codehaus.xfire.annotations.AnnotationServiceFactory;
 import org.codehaus.xfire.client.Client;
@@ -28,7 +28,7 @@ import org.codehaus.xfire.service.ServiceFactory;
 import org.codehaus.xfire.transport.Transport;
 
 public class ServiceDelegate
-    extends javax.xml.ws.spi.ServiceDelegate
+    extends jakarta.xml.ws.spi.ServiceDelegate
 {
     private JAXWSHelper jaxWsHelper = JAXWSHelper.getInstance();
     private XFireProxyFactory factory = jaxWsHelper.getProxyFactory();
@@ -139,7 +139,7 @@ public class ServiceDelegate
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> javax.xml.ws.Dispatch<T> createDispatch(QName port, Class<T> type, Mode serviceMode)
+    public <T> jakarta.xml.ws.Dispatch<T> createDispatch(QName port, Class<T> type, Mode serviceMode)
     {   
         Transport transport;
         String address;
@@ -187,7 +187,7 @@ public class ServiceDelegate
     }
 
     @Override
-    public javax.xml.ws.Dispatch<Object> createDispatch(QName arg0, JAXBContext arg1, Mode arg2)
+    public jakarta.xml.ws.Dispatch<Object> createDispatch(QName arg0, JAXBContext arg1, Mode arg2)
     {
         return null;
     }

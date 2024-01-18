@@ -1,6 +1,6 @@
 package org.codehaus.xfire.attachments;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 
 /**
  * An attachment from a SOAP invocation.

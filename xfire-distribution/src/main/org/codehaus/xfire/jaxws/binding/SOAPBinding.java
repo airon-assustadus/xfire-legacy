@@ -2,12 +2,12 @@ package org.codehaus.xfire.jaxws.binding;
 
 import java.util.Set;
 
-import javax.xml.soap.MessageFactory;
-import javax.xml.soap.SOAPFactory;
+import jakarta.xml.soap.MessageFactory;
+import jakarta.xml.soap.SOAPFactory;
 
 import org.codehaus.xfire.transport.Transport;
 
-public class SOAPBinding extends AbstractBinding implements javax.xml.ws.soap.SOAPBinding
+public class SOAPBinding extends AbstractBinding implements jakarta.xml.ws.soap.SOAPBinding
 {
     private boolean mtomEnabled = false;
     private Set<String> roles;

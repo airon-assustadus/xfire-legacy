@@ -2,7 +2,7 @@ package org.codehaus.xfire.jaxws;
 
 import javax.xml.namespace.QName;
 
-public class PortInfo implements javax.xml.ws.handler.PortInfo
+public class PortInfo implements jakarta.xml.ws.handler.PortInfo
 {
     private String bindingID;
     private QName portName;

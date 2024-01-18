@@ -1,6 +1,6 @@
 package org.codehaus.xfire.jaxb2;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,7 +14,7 @@ import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.util.UID;
 
 public class AttachmentMarshaller
-    extends javax.xml.bind.attachment.AttachmentMarshaller
+    extends jakarta.xml.bind.attachment.AttachmentMarshaller
 {
     private static final Log log = LogFactory.getLog(AttachmentMarshaller.class);
     private MessageContext context;
@@ -53,7 +53,6 @@ public class AttachmentMarshaller
         return "cid:" +id;
     }
 
-    @Override
     public String addMtomAttachment(DataHandler handler, String elementNS, String elementLocalName)
     {
         log.debug("Adding DataHandler attachment {" + elementNS + "}" + elementLocalName);

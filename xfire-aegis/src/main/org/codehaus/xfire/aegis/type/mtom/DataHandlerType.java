@@ -1,6 +1,6 @@
 package org.codehaus.xfire.aegis.type.mtom;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.attachments.Attachment;

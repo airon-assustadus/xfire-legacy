@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>xfire-parent</artifactId>
 		<groupId>org.codehaus.xfire</groupId>
-		<version>2.0.0-jakarta</version>
+		<version>2.0.1-jakarta</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>xfire-jaxb2</artifactId>
@@ -89,24 +89,12 @@
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-xjc</artifactId>
-			<version>2.0.1</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jsr173</artifactId>
-					<groupId>javax.xml</groupId>
-				</exclusion>
-			</exclusions>
+			<version>4.0.4</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.xml.ws</groupId>
-			<artifactId>jaxws-api</artifactId>
-			<version>2.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.xml.bind</groupId>
-					<artifactId>jsr173_api</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>jakarta.xml.ws</groupId>
+			<artifactId>jakarta.xml.ws-api</artifactId>
+			<version>4.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.xfire</groupId>

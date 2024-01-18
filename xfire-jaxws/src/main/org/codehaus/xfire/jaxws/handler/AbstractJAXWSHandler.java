@@ -2,7 +2,7 @@ package org.codehaus.xfire.jaxws.handler;
 
 import java.util.List;
 
-import javax.xml.ws.handler.Handler;
+import jakarta.xml.ws.handler.Handler;
 
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.handler.AbstractHandler;

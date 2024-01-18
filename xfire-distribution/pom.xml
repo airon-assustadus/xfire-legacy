@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>xfire-parent</artifactId>
 		<groupId>org.codehaus.xfire</groupId>
-		<version>2.0.0-jakarta</version>
+		<version>2.0.1-jakarta</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>xfire-distribution</artifactId>
@@ -167,12 +167,6 @@
 		<dependency>
 			<groupId>org.codehaus.xfire</groupId>
 			<artifactId>xfire-all</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.xml.bind</groupId>
-					<artifactId>jsr173_api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 </project>

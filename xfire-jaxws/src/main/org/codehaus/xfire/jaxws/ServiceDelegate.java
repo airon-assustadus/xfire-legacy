@@ -10,14 +10,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
-import javax.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBContext;
 import javax.xml.namespace.QName;
 import javax.xml.transform.Source;
-import javax.xml.ws.Dispatch;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.Service.Mode;
-import javax.xml.ws.handler.HandlerResolver;
+import jakarta.xml.ws.Dispatch;
+import jakarta.xml.ws.EndpointReference;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.Service.Mode;
+import jakarta.xml.ws.WebServiceFeature;
+import jakarta.xml.ws.handler.HandlerResolver;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codehaus.xfire.annotations.AnnotationServiceFactory;
 import org.codehaus.xfire.client.Client;
 import org.codehaus.xfire.client.XFireProxyFactory;
@@ -27,21 +31,25 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.ServiceFactory;
 import org.codehaus.xfire.transport.Transport;
 
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class ServiceDelegate
-    extends javax.xml.ws.spi.ServiceDelegate
+    extends jakarta.xml.ws.spi.ServiceDelegate
 {
-    private JAXWSHelper jaxWsHelper = JAXWSHelper.getInstance();
-    private XFireProxyFactory factory = jaxWsHelper.getProxyFactory();
-    private ServiceFactory serviceFactory = jaxWsHelper.getServiceFactory();
+    private final JAXWSHelper jaxWsHelper = JAXWSHelper.getInstance();
+    private final XFireProxyFactory factory = jaxWsHelper.getProxyFactory();
+    private final ServiceFactory serviceFactory = jaxWsHelper.getServiceFactory();
 
     private URL wsdlLocation;
     private Executor executor;
     private HandlerResolver handlerResolver;
     private QName serviceName;
     
-    private Map<QName, Service> port2Service = new HashMap<QName, Service>();
-    private Map<Class, Service> intf2service = new HashMap<Class, Service>();
-    private Map<QName, PortInfo> port2info = new HashMap<QName, PortInfo>();
+    private final Map<QName, Service> port2Service = new HashMap<QName, Service>();
+
+    private final Map<Class, Service> intf2service = new HashMap<>();
+    private final Map<QName, PortInfo> port2info = new HashMap<QName, PortInfo>();
+
+    private static final Log log = LogFactory.getLog(ServiceDelegate.class);
     
     public ServiceDelegate()
     {
@@ -60,10 +68,9 @@ public class ServiceDelegate
             Method method = clientClass.getMethod("getPortClassMap", new Class[0]);
             
             Map port2Class = (Map) method.invoke(null, new Object[0]);
-            for (Iterator itr = port2Class.entrySet().iterator(); itr.hasNext();)
-            {
-                Map.Entry entry = (Map.Entry) itr.next();
-                
+            for (Object o : port2Class.entrySet()) {
+                Map.Entry entry = (Map.Entry) o;
+
                 QName port = (QName) entry.getKey();
                 Class clazz = (Class) entry.getValue();
 
@@ -104,6 +111,16 @@ public class ServiceDelegate
         return (T) createPort(endpoint);
     }
 
+    @Override
+    public <T> T getPort(QName portName, Class<T> serviceEndpointInterface, WebServiceFeature... features) {
+        return getPort(portName, serviceEndpointInterface);
+    }
+
+    @Override
+    public <T> T getPort(EndpointReference endpointReference, Class<T> serviceEndpointInterface, WebServiceFeature... features) {
+        return getPort(serviceEndpointInterface);
+    }
+
     private Object createPort(Endpoint endpoint)
     {
         try
@@ -120,12 +137,17 @@ public class ServiceDelegate
     @Override
     public <T> T getPort(Class<T> clazz)
     {
-        if (getService(clazz).getEndpoints().size() == 0)
+        if (getService(clazz).getEndpoints().isEmpty())
         {
             throw new WebServiceException("No available ports.");
         }
         
         return (T) createPort((Endpoint) getService(clazz).getEndpoints().iterator().next());
+    }
+
+    @Override
+    public <T> T getPort(Class<T> serviceEndpointInterface, WebServiceFeature... features) {
+        return getPort(serviceEndpointInterface);
     }
 
     @Override
@@ -137,9 +159,8 @@ public class ServiceDelegate
     }
 
 
-    @SuppressWarnings("unchecked")
     @Override
-    public <T> javax.xml.ws.Dispatch<T> createDispatch(QName port, Class<T> type, Mode serviceMode)
+    public <T> Dispatch<T> createDispatch(QName port, Class<T> type, Mode serviceMode)
     {   
         Transport transport;
         String address;
@@ -181,14 +202,40 @@ public class ServiceDelegate
         }
     }
 
+    @Override
+    public <T> Dispatch<T> createDispatch(QName portName, Class<T> type, Mode mode, WebServiceFeature... features) {
+        return createDispatch(portName, type, mode);
+    }
+
+    @Override
+    public <T> Dispatch<T> createDispatch(EndpointReference endpointReference, Class<T> type, Mode mode, WebServiceFeature... features) {
+        log.error("I wasn't expecting you will call this method");
+        return null;
+    }
+
     private PortInfo getPortInfo(QName port)
     {
         return port2info.get(port);
     }
 
     @Override
-    public javax.xml.ws.Dispatch<Object> createDispatch(QName arg0, JAXBContext arg1, Mode arg2)
+    public Dispatch<Object> createDispatch(QName arg0, JAXBContext arg1, Mode arg2)
     {
+        log.error("I wasn't expecting you will call this method");
+        return null;
+    }
+
+    @Override
+    public Dispatch<Object> createDispatch(QName portName, JAXBContext context, Mode mode, WebServiceFeature... features) {
+        log.error("I wasn't expecting you will call this method");
+
+        Class<Object> casting = (Class) Source.class;
+
+        return createDispatch(portName, casting, mode);
+    }
+
+    @Override
+    public Dispatch<Object> createDispatch(EndpointReference endpointReference, JAXBContext context, Mode mode, WebServiceFeature... features) {
         return null;
     }
 
@@ -241,8 +288,8 @@ public class ServiceDelegate
     
     static class PortInfo 
     {
-        private String bindingUri;
-        private String address;
+        private final String bindingUri;
+        private final String address;
         
         public PortInfo(String bindingUri, String address2)
         {
@@ -253,17 +300,9 @@ public class ServiceDelegate
         {
             return address;
         }
-        public void setAddress(String address)
-        {
-            this.address = address;
-        }
         public String getBindingUri()
         {
             return bindingUri;
-        }
-        public void setBindingUri(String bindingUri)
-        {
-            this.bindingUri = bindingUri;
         }
     }
 }

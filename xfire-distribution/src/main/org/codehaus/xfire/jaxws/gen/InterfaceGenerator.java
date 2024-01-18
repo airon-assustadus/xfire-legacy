@@ -1,8 +1,8 @@
 package org.codehaus.xfire.jaxws.gen;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.RequestWrapper;
-import javax.xml.ws.ResponseWrapper;
+import jakarta.xml.ws.RequestWrapper;
+import jakarta.xml.ws.ResponseWrapper;
 
 import org.codehaus.xfire.XFireRuntimeException;
 import org.codehaus.xfire.gen.GenerationContext;

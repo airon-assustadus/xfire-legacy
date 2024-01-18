@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.WebEndpoint;
-import javax.xml.ws.WebServiceClient;
+import jakarta.xml.ws.WebEndpoint;
+import jakarta.xml.ws.WebServiceClient;
 
 import org.codehaus.xfire.gen.GenerationContext;
 import org.codehaus.xfire.gen.GeneratorPlugin;
@@ -66,7 +66,7 @@ public class ServiceGenerator
         portName = getUniqueName(model, portName);
         
         JDefinedClass servCls = model._class(portName);
-        servCls._extends(javax.xml.ws.Service.class);
+        servCls._extends(jakarta.xml.ws.Service.class);
         
         String wsdlUrl = context.getWsdlLocation();
         JAnnotationUse clientAnn = servCls.annotate(WebServiceClient.class);

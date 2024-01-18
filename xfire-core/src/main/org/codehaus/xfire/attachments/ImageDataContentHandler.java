@@ -9,8 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import javax.activation.DataContentHandler;
-import javax.activation.DataSource;
+import jakarta.activation.ActivationDataFlavor;
+import jakarta.activation.DataContentHandler;
+import jakarta.activation.DataSource;
 
 /**
  * @author <a href="mailto:dan@envoisolutiosn.com">Dan Diephouse</a>
@@ -50,8 +51,13 @@ public class ImageDataContentHandler
         return null;
     }
 
-    public DataFlavor[] getTransferDataFlavors()
+    public ActivationDataFlavor[] getTransferDataFlavors()
     {
+        return null;
+    }
+
+    @Override
+    public Object getTransferData(ActivationDataFlavor df, DataSource ds) throws IOException {
         return null;
     }
 

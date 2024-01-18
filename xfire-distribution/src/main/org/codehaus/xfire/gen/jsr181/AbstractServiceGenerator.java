@@ -379,7 +379,7 @@ public abstract class AbstractServiceGenerator
         JType genericType = context.getSchemaGenerator().getType(context, part);
         
         try {
-            JClass holder = context.getCodeModel().ref("javax.xml.ws.Holder");
+            JClass holder = context.getCodeModel().ref("jakarta.xml.ws.Holder");
             if (genericType instanceof JPrimitiveType) {
             	genericType = ((JPrimitiveType) genericType).boxify();
             }

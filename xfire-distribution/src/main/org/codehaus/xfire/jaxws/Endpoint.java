@@ -6,16 +6,16 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 
 import javax.xml.transform.Source;
-import javax.xml.ws.Binding;
-import javax.xml.ws.BindingType;
-import javax.xml.ws.soap.SOAPBinding;
+import jakarta.xml.ws.Binding;
+import jakarta.xml.ws.BindingType;
+import jakarta.xml.ws.soap.SOAPBinding;
 
 import org.codehaus.xfire.jaxws.binding.AbstractBinding;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.invoker.BeanInvoker;
 
 public class Endpoint
-    extends javax.xml.ws.Endpoint
+    extends jakarta.xml.ws.Endpoint
 {
     private JAXWSHelper jaxWsHelper = JAXWSHelper.getInstance();
     private AbstractBinding binding;

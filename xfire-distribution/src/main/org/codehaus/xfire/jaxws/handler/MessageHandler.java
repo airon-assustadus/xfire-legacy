@@ -1,9 +1,9 @@
 package org.codehaus.xfire.jaxws.handler;
 
-import javax.xml.ws.handler.Handler;
-import javax.xml.ws.handler.LogicalHandler;
-import javax.xml.ws.handler.MessageContext;
-import javax.xml.ws.handler.soap.SOAPHandler;
+import jakarta.xml.ws.handler.Handler;
+import jakarta.xml.ws.handler.LogicalHandler;
+import jakarta.xml.ws.handler.MessageContext;
+import jakarta.xml.ws.handler.soap.SOAPHandler;
 
 import org.codehaus.xfire.handler.Phase;
 import org.codehaus.xfire.jaxws.ServiceDelegate;

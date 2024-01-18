@@ -4,7 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.codehaus.xfire.MessageContext;

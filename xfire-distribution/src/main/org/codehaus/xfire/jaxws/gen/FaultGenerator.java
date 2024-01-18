@@ -1,6 +1,6 @@
 package org.codehaus.xfire.jaxws.gen;
 
-import javax.xml.ws.WebFault;
+import jakarta.xml.ws.WebFault;
 
 import org.codehaus.xfire.service.MessagePartInfo;
 

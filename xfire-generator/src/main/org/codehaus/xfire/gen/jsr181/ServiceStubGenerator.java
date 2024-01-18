@@ -47,7 +47,7 @@ public class ServiceStubGenerator
             JType type = context.getCodeModel().parseType(clsName);
             service.setProperty(SERVICE_STUB, type);
         }
-        catch (ClassNotFoundException e)
+        catch (Exception e)
         {
             return true;
         }

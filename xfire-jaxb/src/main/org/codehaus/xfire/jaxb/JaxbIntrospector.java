@@ -3,7 +3,7 @@ package org.codehaus.xfire.jaxb;
 import com.sun.xml.bind.RIElement;
 import org.codehaus.xfire.XFireRuntimeException;
 
-import javax.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBContext;
 import javax.xml.namespace.QName;
 import java.lang.reflect.Method;
 

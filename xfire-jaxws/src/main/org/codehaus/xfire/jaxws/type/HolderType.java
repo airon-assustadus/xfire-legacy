@@ -1,6 +1,6 @@
 package org.codehaus.xfire.jaxws.type;
 
-import javax.xml.ws.Holder;
+import jakarta.xml.ws.Holder;
 
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.aegis.MessageWriter;

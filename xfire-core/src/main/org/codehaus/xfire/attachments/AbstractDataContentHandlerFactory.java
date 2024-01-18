@@ -3,14 +3,14 @@ package org.codehaus.xfire.attachments;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.activation.DataContentHandler;
+import jakarta.activation.DataContentHandler;
 
 
 /**
  * @author <a href="mailto:dan@envoisolutiosn.com">Dan Diephouse</a>
  */
 public class AbstractDataContentHandlerFactory
-    implements javax.activation.DataContentHandlerFactory
+    implements jakarta.activation.DataContentHandlerFactory
 {    
     private Map types = new HashMap();
     private Map classToHandlers = new HashMap();

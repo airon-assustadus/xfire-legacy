@@ -1,6 +1,6 @@
 package org.codehaus.xfire.jaxb2;
 
-import javax.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBContext;
 
 import org.codehaus.xfire.XFireFactory;
 import org.codehaus.xfire.aegis.AegisBindingProvider;

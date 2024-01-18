@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import javax.activation.DataContentHandler;
-import javax.activation.DataSource;
+import jakarta.activation.DataContentHandler;
+import jakarta.activation.DataSource;
 
 /**
  * @author <a href="mailto:dan@envoisolutiosn.com">Dan Diephouse</a>

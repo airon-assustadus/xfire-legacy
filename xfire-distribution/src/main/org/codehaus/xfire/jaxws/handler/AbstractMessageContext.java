@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class AbstractMessageContext
     extends HashMap<String,Object>
-    implements javax.xml.ws.handler.MessageContext
+    implements jakarta.xml.ws.handler.MessageContext
 {
     private Map<String,Scope> prop2scope = new HashMap<String,Scope>();
     

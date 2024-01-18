@@ -3,9 +3,9 @@ package org.codehaus.xfire.jaxws;
 import java.net.URL;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.Endpoint;
-import javax.xml.ws.soap.SOAPBinding;
-import javax.xml.ws.spi.ServiceDelegate;
+import jakarta.xml.ws.Endpoint;
+import jakarta.xml.ws.soap.SOAPBinding;
+import jakarta.xml.ws.spi.ServiceDelegate;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,7 +13,7 @@ import org.codehaus.xfire.transport.Transport;
 import org.codehaus.xfire.transport.TransportManager;
 
 public class Provider
-    extends javax.xml.ws.spi.Provider
+    extends jakarta.xml.ws.spi.Provider
 {
     private static final Log log = LogFactory.getLog(Provider.class);
 

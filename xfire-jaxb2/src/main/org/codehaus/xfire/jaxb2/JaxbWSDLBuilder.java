@@ -8,9 +8,9 @@ import java.util.Set;
 
 import javax.wsdl.Types;
 import javax.wsdl.WSDLException;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.SchemaOutputResolver;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
 import javax.xml.transform.dom.DOMResult;
 

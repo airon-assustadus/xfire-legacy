@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.XFireRuntimeException;
@@ -14,7 +14,7 @@ import org.codehaus.xfire.attachments.AttachmentUtil;
 import org.codehaus.xfire.soap.SoapConstants;
 
 public class AttachmentUnmarshaller
-    extends javax.xml.bind.attachment.AttachmentUnmarshaller
+    extends jakarta.xml.bind.attachment.AttachmentUnmarshaller
 {
     private MessageContext context;
 

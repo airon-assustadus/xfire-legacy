@@ -4,7 +4,7 @@ import org.codehaus.xfire.transport.Transport;
 
 public class HTTPBinding
     extends AbstractBinding
-    implements javax.xml.ws.http.HTTPBinding
+    implements jakarta.xml.ws.http.HTTPBinding
 {
     public HTTPBinding(Transport t)
     {

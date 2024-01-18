@@ -4,17 +4,17 @@ import java.util.Map;
 import java.util.concurrent.Future;
 
 import javax.xml.transform.Source;
-import javax.xml.ws.AsyncHandler;
-import javax.xml.ws.Binding;
-import javax.xml.ws.Response;
-import javax.xml.ws.Service;
-import javax.xml.ws.WebServiceException;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Binding;
+import jakarta.xml.ws.Response;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebServiceException;
 
 import org.codehaus.xfire.client.Client;
 import org.codehaus.xfire.service.OperationInfo;
 
 public class SourceDispatch
-    implements javax.xml.ws.Dispatch<Source>
+    implements jakarta.xml.ws.Dispatch<Source>
 {
     private Client client;
     private Service.Mode mode;
